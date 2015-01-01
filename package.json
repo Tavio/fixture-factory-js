@@ -1,0 +1,20 @@
+{
+  "name": "angular-fixture-factory",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.1",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-karma": "^0.9.0",
+    "jasmine-core": "^2.1.2",
+    "jshint-stylish": "^0.2.0",
+    "karma": "^0.12.28",
+    "karma-jasmine": "^0.3.1",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-chrome-launcher": "~0.1",
+    "load-grunt-tasks": "^0.4.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}

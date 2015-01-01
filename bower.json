@@ -1,0 +1,27 @@
+{
+	"author": "Otávio Nascimento",
+	"name": "angular-fixture-factory",
+	"description": "create template based data for your angular js tests easily",
+	"version": "0.1.0",
+	"homepage": "https://github.com/Tavio/angular-fixture-factory",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Tavio/angular-fixture-factory"
+	},
+	"license": "MIT",
+	"main": "angular-fixture-factory.js",
+	"ignore": [
+		"test",
+		".jshintrc",
+		"package.json",
+		"gruntfile.js",
+		"bower.json",
+		".gitignore"
+	],
+	"dependencies": {
+		"angular": "1.2.28"
+	},
+	"devDependencies": {
+		"angular-mocks": "1.2.28"
+	}
+}
