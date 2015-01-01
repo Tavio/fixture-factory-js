@@ -1,4 +1,4 @@
-angular.module('testModule')
+angular.module('fakeApp')
 	.run(function(Fixture) {
 			Fixture.of("person").addTemplate( 
 				"valid", 

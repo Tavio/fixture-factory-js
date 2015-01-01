@@ -1,11 +1,11 @@
 'use strict';
 
-describe('Test module', function () {
+describe('Fake App test', function () {
 
   var Fixture;
   
   beforeEach(function() {
-  	module('testModule');
+  	module('fakeApp');
   	inject(function (_Fixture_) {
 	    Fixture = _Fixture_;
 	  })
