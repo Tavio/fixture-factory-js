@@ -22,7 +22,8 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       'angular-fixture-factory.js',
       'test/fakeApp/fakeApp.js',
-      'test/fakeApp/**/*.js'
+      'test/fakeApp/**/*.js',
+      'test/*.js'
     ],
 
     // list of files / patterns to exclude
