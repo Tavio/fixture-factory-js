@@ -4,13 +4,14 @@ describe('Fixture Factory test', function () {
 
 	var Fixture, fixtures;
 
-	fixtures = {};
-	fixtures['animal'] = {};
-	fixtures['animal']['valid'] = {
-		weight: 100
-	};
-
 	beforeEach(function() {
+
+		fixtures = {};
+		fixtures['animal'] = {};
+		fixtures['animal']['valid'] = {
+			weight: 100
+		};
+
 		module('angular-fixture-factory', function($provide) {
 			$provide.constant('FIXTURES', fixtures);
 		});
@@ -65,30 +66,32 @@ describe('Fixture Factory test', function () {
 		expect(fixtures['animal']['dog'].sound).toEqual('bark');
 	});
 
-	it('should generate a random integer between 1 and 100', function() {
+	it('should generate random integers between 1 and 10', function() {
 		var giraffe = {
-			numberOfSpots : Fixture.randomInt(1, 100)
+			numberOfSpots : Fixture.randomInt(1, 10)
 		};
 		
-		fixtures['animal']['giraffe'] = giraffe;
-		var generatedGiraffe = Fixture.of('animal').gimme('giraffe');
+		for(var i = 0; i < 10000; i++) {
+			fixtures['animal']['giraffe'] = giraffe;
+			var generatedGiraffe = Fixture.of('animal').gimme('giraffe');
 
-
-		expect(generatedGiraffe.numberOfSpots).toBeGreaterThan(0);
-		expect(generatedGiraffe.numberOfSpots).toBeLessThan(101);
+			expect(generatedGiraffe.numberOfSpots).toBeGreaterThan(0);
+			expect(generatedGiraffe.numberOfSpots).toBeLessThan(11);
+		}
 	});
 
-	it('should generate a random integer between 1 and 100', function() {
-		var giraffe = {
-			numberOfSpots : Fixture.randomInt(1, 100)
+	it('should generate a random number between 1 and 2', function() {
+		var kangaroo = {
+			id : Fixture.randomNumber(1, 2)
 		};
 		
-		fixtures['animal']['giraffe'] = giraffe;
-		var generatedGiraffe = Fixture.of('animal').gimme('giraffe');
+		for(var i = 0; i < 10000; i++) {
+			fixtures['animal']['kangaroo'] = kangaroo;
+			var generatedKangaroo = Fixture.of('animal').gimme('kangaroo');
 
-
-		expect(generatedGiraffe.numberOfSpots).toBeGreaterThan(0);
-		expect(generatedGiraffe.numberOfSpots).toBeLessThan(101);
+			expect(generatedKangaroo.id >= 1).toBe(true);
+			expect(generatedKangaroo.id <= 2).toBe(true);
+		}
 	});
 
 	it('should generate unique random integers between 1 and 100', function() {
@@ -122,7 +125,24 @@ describe('Fixture Factory test', function () {
 		expect(generatedFeline.type).toMatch(/Cat|Tiger|Panther/);
 	});
 
-	it('should generate a random string that matches the provided regex', function() {
+	it('should generate unique random values', function() {
+		var values = ['Savannah', 'Jungle', 'Forest', 'Desert', 'Sea'];
+		
+		var valid = {
+			habitat : Fixture.uniqueRandomValue(['Savannah', 'Jungle', 'Forest', 'Desert', 'Sea'])
+		};
+		
+		fixtures['animal']['valid'] = valid;
+		var generatedAnimals = Fixture.of('animal').gimme('valid', 5);
+		
+		generatedAnimals.forEach(function(generatedAnimals) {
+			values.splice(values.indexOf(generatedAnimals.habitat), 1);
+		});
+
+		expect(values.length).toEqual(0);
+	});	
+
+	it('should generate a random string matching the provided regex', function() {
 		var parrot = {
 			phrase: Fixture.regex(/\w{5-10}/)
 		};
@@ -161,5 +181,38 @@ describe('Fixture Factory test', function () {
 		for(var i = 0; i < 100; i++) {
 			expect(generatedZoo.animals[i].weight).toEqual(100);
 		}
+	});
+
+	it('should generate a party starting monday at 20:35', function() {
+		var party = {
+			date: Fixture.instant('mon 8:35 PM')
+		};
+
+		fixtures['party'] = {};
+		fixtures['party']['bday'] = party;
+
+		var generatedParty = Fixture.of('party').gimme('bday');
+		expect(generatedParty.date.getDay()).toEqual(1);
+		expect(generatedParty.date.getHours()).toEqual(20);
+		expect(generatedParty.date.getMinutes()).toEqual(35);
+	});
+
+	it('should replace reference to another field with value', function() {
+		var employee = {
+			id: "${email}-${phone}",
+		    name: "otavio",
+		    company: "vivareal",
+		    email: "${name}.${company}@gmail.com",
+		    phone: "55555555"
+		};
+
+		fixtures['employee'] = {};
+		fixtures['employee']['valid'] = employee;
+		var generatedEmployee = Fixture.of('employee').gimme('valid');
+		expect(generatedEmployee.id).toEqual('otavio.vivareal@gmail.com-55555555');
+		expect(generatedEmployee.name).toEqual('otavio');
+		expect(generatedEmployee.company).toEqual('vivareal');
+		expect(generatedEmployee.email).toEqual('otavio.vivareal@gmail.com');
+		expect(generatedEmployee.phone).toEqual('55555555');
 	});
 });
