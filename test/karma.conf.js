@@ -20,6 +20,8 @@ module.exports = function(config) {
     files: [
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/datejs/build/date.js',
+      'bower_components/randexp/index.js',
       'angular-fixture-factory.js',
       'test/fakeApp/fakeApp.js',
       'test/fakeApp/**/*.js',

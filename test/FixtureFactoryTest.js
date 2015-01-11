@@ -215,4 +215,28 @@ describe('Fixture Factory test', function () {
 		expect(generatedEmployee.email).toEqual('otavio.vivareal@gmail.com');
 		expect(generatedEmployee.phone).toEqual('55555555');
 	});
+
+	it('should throw exception due to reference to a non-existing field', function() {
+		var employee = {
+			email: '${name}@gmail.com'
+		};
+
+		fixtures['employee'] = {};
+		fixtures['employee']['valid'] = employee;
+		expect(function(){Fixture.of('employee').gimme('valid');}).toThrow('Fixture Factory failed to calculate ${} field references.' + 
+	        	'Either a cyclic dependency exists or one of the fields references a non-existent field.');
+	});
+
+	it('should throw exception due to cyclic reference between fields', function() {
+		var employee = {
+			name: '${email}',
+			email: '${name}@gmail.com',
+			phone: '55555555'
+		};
+
+		fixtures['employee'] = {};
+		fixtures['employee']['valid'] = employee;
+		expect(function(){Fixture.of('employee').gimme('valid');}).toThrow('Fixture Factory failed to calculate ${} field references.' + 
+	        	'Either a cyclic dependency exists or one of the fields references a non-existent field.');
+	});
 });
