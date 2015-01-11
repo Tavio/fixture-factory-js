@@ -53,3 +53,5 @@ Generating a fixture in one of your tests:
 Requesting several fixtures of the same template:
 
 	var developers = Fixture.of('Employee').gimme('Developer', 42);
+	
+See more examples of usage in the [tests](https://github.com/Tavio/angular-fixture-factory/tree/master/test).
