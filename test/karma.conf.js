@@ -18,13 +18,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/datejs/build/date.js',
       'bower_components/randexp/index.js',
-      'angular-fixture-factory.js',
-      'test/fakeApp/fakeApp.js',
-      'test/fakeApp/**/*.js',
+      'FixtureFactory.js',
       'test/*.js'
     ],
 
