@@ -7,7 +7,7 @@ Angular Fixture Factory is an Angular JS service that generates fake objects for
 
 	bower install angular-fixture-factory --save
 
-To use, include the angular-fixture-factory module as a dependency of your module and make sure to load angular-fixture-factory.js (in your index.html or in the list of files in your karma.conf).
+To use, include the angular-fixture-factory module as a dependency of your module and make sure to load angular-fixture-factory.js (in your index.html or in the list of files in your karma.conf). Also note that bower will install [date.js](https://github.com/abritinthebay/datejs/) and [randexp.js](https://github.com/fent/randexp.js) as dependencies, so you should include those as well.
 
 ## Usage
 
