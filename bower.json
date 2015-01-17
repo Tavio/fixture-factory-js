@@ -2,7 +2,7 @@
 	"author": "Otávio Nascimento",
 	"name": "fixture-factory",
 	"description": "create template based data for your angular js tests easily",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"homepage": "https://github.com/Tavio/fixture-factory-js",
 	"repository": {
 		"type": "git",
