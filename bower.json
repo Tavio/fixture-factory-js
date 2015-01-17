@@ -1,15 +1,15 @@
 {
 	"author": "Otávio Nascimento",
-	"name": "angular-fixture-factory",
+	"name": "fixture-factory",
 	"description": "create template based data for your angular js tests easily",
 	"version": "0.1.0",
-	"homepage": "https://github.com/Tavio/angular-fixture-factory",
+	"homepage": "https://github.com/Tavio/fixture-factory-js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Tavio/angular-fixture-factory"
+		"url": "https://github.com/Tavio/fixture-factory-js"
 	},
 	"license": "MIT",
-	"main": "angular-fixture-factory.js",
+	"main": "FixtureFactory.js",
 	"ignore": [
 		"test",
 		".jshintrc",
@@ -19,11 +19,7 @@
 		".gitignore"
 	],
 	"dependencies": {
-		"angular": "1.2.28",
 		"datejs": "1.0.0-rc3",
 		"randexp": "https://github.com/fent/randexp.js/releases/download/v0.4.0/randexp.min.js"
-	},
-	"devDependencies": {
-		"angular-mocks": "1.2.28"
 	}
 }

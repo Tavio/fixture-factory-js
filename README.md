@@ -1,13 +1,13 @@
-Angular Fixture Factory
-=======================
+Fixture Factory JS
+==================
 
-Angular Fixture Factory is an Angular JS service that generates fake objects for your tests. The Fixture Factory service builds fake data based on templates that you create only once, either with the help of existing native functions or by creating generator functions of your own. Just created a complex screen and want to see how it will look when populated by a lot of data? Just ask for 100 instances of the related entity's template and test away!
+Fixture Factory JS is a Javascript library that generates fake objects for your tests. Fixture Factory builds fake data based on templates that you create only once, either with the help of existing native functions or by creating generator functions of your own. Just created a complex screen and want to see how it will look when populated by a lot of data? Just ask for 100 instances of the related entity's template and test away!
 
 ## Installing
 
-	bower install angular-fixture-factory --save
+	bower install fixture-factory --save
 
-To use, include the angular-fixture-factory module as a dependency of your module and make sure to load angular-fixture-factory.js (in your index.html or in the list of files in your karma.conf). Also note that bower will install [date.js](https://github.com/abritinthebay/datejs/) and [randexp.js](https://github.com/fent/randexp.js) as dependencies, so you should include those as well.
+Note that bower will install [date.js](https://github.com/abritinthebay/datejs/) and [randexp.js](https://github.com/fent/randexp.js) as dependencies, so you should include these dependencies in your application.
 
 ## Usage
 
@@ -56,4 +56,4 @@ Requesting several fixtures of the same template:
 
 	var developers = Fixture.of('Employee').gimme('Developer', 42);
 	
-See more usage examples in the [tests](https://github.com/Tavio/angular-fixture-factory/tree/master/test).
+See more usage examples in the [tests](https://github.com/Tavio/fixture-factory-js/tree/master/test).
