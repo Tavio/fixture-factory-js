@@ -14,7 +14,7 @@
 		"test",
 		".jshintrc",
 		"package.json",
-		"gruntfile.js",
+		"Gruntfile.js",
 		"bower.json",
 		".gitignore"
 	],
