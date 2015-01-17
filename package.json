@@ -1,6 +1,6 @@
 {
-  "name": "angular-fixture-factory",
-  "version": "0.0.0",
+  "name": "fixture-factory-js",
+  "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
     "grunt": "^0.4.1",
