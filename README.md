@@ -18,12 +18,14 @@ Writing the template rules:
 	Fixture.of("Employee").addTemplate( 
 		"Developer", 
 		{
-			name: Fixture.regex(/\w{8-10}\s/\w{8-10}/),
+			name: Fixture.firstName(),
+			lastName: Fixture.lastName(),
 			email: '${name}-dev@company.com',
 			age: Fixture.randomInt(25, 62),
 			phone: '5555-5555',
 			preferredLanguage: Fixture.randomValue(['Java', 'Python', 'Scala', 'Ruby']),
-			hireDate: Fixture.instant('10 years ago');
+			hireDate: Fixture.instant('10 years ago'),
+			company: Fixture.regex(/\w{8-10}\s/\w{8-10}/)
 		}
 	);
 	
@@ -54,4 +56,4 @@ Requesting several fixtures of the same template:
 
 	var developers = Fixture.of('Employee').gimme('Developer', 42);
 	
-See more examples of usage in the [tests](https://github.com/Tavio/angular-fixture-factory/tree/master/test).
+See more usage examples in the [tests](https://github.com/Tavio/angular-fixture-factory/tree/master/test).
