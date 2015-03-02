@@ -121,7 +121,7 @@
 	function uniqueRandomValue(dataset) {
 		this.nextValueIndex = 0;
 		this.dataset = dataset;
-		that = this;
+		var that = this;
 
 		function shuffleDataset() {
 			var temp;
